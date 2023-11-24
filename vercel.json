@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ],
+    "env": {
+        "POSTGRES_PRISMA_URL": "postgres://default:OujSnTh87cVL@ep-long-base-66154412-pooler.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb?pgbouncer=true&connect_timeout=15",
+        "POSTGRES_URL_NON_POOLING": "postgres://default:OujSnTh87cVL@ep-long-base-66154412.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb"
+    }
+}

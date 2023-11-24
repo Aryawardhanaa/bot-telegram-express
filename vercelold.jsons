@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ],
+    "env": {
+        "POSTGRES_PRISMA_URL": "postgresql://postgres:7oaHC7cMxagoZlnETYV9@containers-us-west-117.railway.app:6830/railway",
+        "POSTGRES_URL_NON_POOLING": "postgres://default:OujSnTh87cVL@ep-long-base-66154412.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb",
+            "DATABASE_URL": "postgresql://postgres:psql123@localhost:5432/ujian3"
+    }
+}

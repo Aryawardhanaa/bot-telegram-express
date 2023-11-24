@@ -1,0 +1,19 @@
+SELECT
+  soal.id,
+  soal.kode_soal,
+  soal.nama_soal,
+  soal.jawaban1,
+  soal.jawaban2,
+  soal.jawaban3,
+  soal.jawaban4,
+  soal.jawaban5,
+  soal.kunci,
+  soal.penjelasan,
+  soal.kategori_soal,
+  soal.bobot
+FROM
+  soal
+ORDER BY
+  (random())
+LIMIT
+  30;
