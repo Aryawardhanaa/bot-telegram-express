@@ -61,7 +61,7 @@ GET https://adventurous-jade-octopus.cyclic.app/soal
 
 
 ###
-GET http://localhost:5000/get-nik/3514114602890000
+GET https://bot-telegram-express.vercel.app/get-nik/3514114602890000
 
 ###
 POST http://localhost:5000/nik
