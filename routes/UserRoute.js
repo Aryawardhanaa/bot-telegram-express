@@ -7,7 +7,7 @@ const router = express.Router();
 
 // router.get('/users', getUsers);
 router.get('/', function (req, res, next) {
-    res.send("Express on Vercel");
+    res.send("halo Selamat Datang");
 });
 
 router.get('/users', verifyToken, getUsers);
