@@ -2,9 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import ProductRoute from "./routes/ProductRoute.js";
-import UserRoute from "./routes/UserRoute.js";
-import SoalRoute from "./routes/SoalRoute.js";
+import NikRoute from "./routes/NikRoute.js";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -21,9 +19,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(ProductRoute);
-app.use(SoalRoute);
-app.use("/", UserRoute);
+app.use(NikRoute);
 
 
 app.listen(port, () => console.log('Server running at port ' + port));

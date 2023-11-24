@@ -22,6 +22,14 @@ model product {
   createdAt DateTime @default(now())
 }
 
+model datanik {
+  id    Int     @id @default(autoincrement())
+  nik   String? @unique
+  phone String? @unique
+  isp   String?
+  time  Int
+}
+
 model user {
   id            String   @id @default(uuid())
   username      String   @unique @db.VarChar(255)
@@ -34,72 +42,4 @@ model user {
   refresh_token String?
   status        String?
   createdat     DateTime @default(now())
-}
-
-model riwayat_ujian {
-  riwayat String?
-  id      Int     @id @default(autoincrement())
-}
-
-model ujian {
-  id          Int     @id @default(autoincrement())
-  nama        String?
-  jumlah_soal String?
-  durasi      String?
-  slug        String?
-  kode        String? @default(uuid())
-}
-
-model user_ujian {
-  id          Int      @id @default(autoincrement())
-  username    String?
-  soaljwb     Json?
-  soal        Json?
-  nilai       Json?
-  total_nilai Int?
-  tanggal     String?  @db.VarChar(50)
-  ujian_id    String?
-  createdat   DateTime @default(now())
-}
-
-model temp_soal {
-  id            String  @id @default(uuid())
-  soal          String?
-  jawaban       String?
-  waktu_mulai   String? @db.VarChar(10)
-  waktu_refresh String? @db.VarChar(10)
-  waktu_selesai String? @db.VarChar(10)
-  username      String?
-}
-
-model soal {
-  id                Int     @id @default(autoincrement())
-  kode_soal         String? @db.VarChar(10)
-  nama_soal         String?
-  jawaban1          String?
-  jawaban2          String?
-  jawaban3          String?
-  jawaban4          String?
-  jawaban5          String?
-  kunci             String?
-  penjelasan        String?
-  sub_kategori_soal String?
-  kategori_soal     String? @db.VarChar(50)
-  bobot             String? @db.VarChar(15)
-}
-
-/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-view random_soal_view {
-  id            String  @id
-  kode_soal     String? @db.VarChar(10)
-  nama_soal     String?
-  jawaban1      String?
-  jawaban2      String?
-  jawaban3      String?
-  jawaban4      String?
-  jawaban5      String?
-  kunci         String?
-  penjelasan    String?
-  kategori_soal String? @db.VarChar(50)
-  bobot         String? @db.VarChar(15)
 }

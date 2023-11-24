@@ -2,21 +2,20 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getProducts = async (req, res) => {
+export const getNik = async (req, res) => {
     try {
-        const response = await prisma.product.findMany();
+        const response = await prisma.datanik.findMany();
         res.status(200).json(response);
     } catch (error) {
         res.status(500).json({ msg: error.message });
     }
 }
 
-export const getProductById = async (req, res) => {
+export const getDataByNik = async (req, res) => {
+    const { nik } = req.params
     try {
-        const response = await prisma.product.findUnique({
-            where: {
-                id: Number(req.params.id)
-            }
+        const response = await prisma.datanik.findUnique({
+            where: { nik }
         });
         res.status(200).json(response);
     } catch (error) {
@@ -24,22 +23,20 @@ export const getProductById = async (req, res) => {
     }
 }
 
-export const createProduct = async (req, res) => {
-    const { name, price } = req.body;
+export const createData = async (req, res) => {
+    const { nik, phone, isp, time } = req.body;
     try {
-        const product = await prisma.product.create({
-            data: {
-                name: name,
-                price: price
-            }
+        const response = await prisma.datanik.create({
+            data: { nik, phone, isp, time }
         });
-        res.status(201).json(product);
+        console.log(res);
+        res.status(201).json(response);
     } catch (error) {
         res.status(400).json({ msg: error.message });
     }
 }
 
-export const updateProduct = async (req, res) => {
+export const updateData = async (req, res) => {
     const { name, price } = req.body;
     try {
         const product = await prisma.product.update({
