@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import NikRoute from "./routes/NikRoute.js";
 import UserRoute from "./routes/UserRoute.js";
+import TeleBot from "telebot";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -22,6 +23,19 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(NikRoute);
 app.use(UserRoute);
+
+const bot = new TeleBot('6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg');
+
+bot.on(/^\/say (.+)$/, (msg, props) => {
+    const text = props.match[1];
+    return bot.sendMessage(msg.from.id, text, { replyToMessage: msg.message_id });
+});
+bot.on('/start', (msg) => msg.reply.text('Selamat datang Jing , maaf kalau sedikit toxic'));
+bot.on('/hello', (msg) => {
+    return bot.sendMessage(msg.from.id, `Hello, ${msg.from.first_name}!`);
+});
+
+bot.start();
 
 
 app.listen(port, () => console.log('Server running at port ' + port));

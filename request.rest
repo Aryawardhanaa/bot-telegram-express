@@ -1,61 +1,3 @@
-###
-GET https://api.kampusmerdeka.kemdikbud.go.id/
-Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjFhMDQyMDQtMDFhMy00OTc2LThlYTMtOTg1OWM2MzY1OGNlIiwicnQiOmZhbHNlLCJleHAiOjE2ODg3MTMzMjIsImlhdCI6MTY4ODcxMTUyMiwiaXNzIjoiV2FydGVrLUlEIiwibmFtZSI6Ik1VSEFNTUFEIEFSWUEgV0FSREhBTkEgR1VOQVdBTiIsInJvbGVzIjpbIm1haGFzaXN3YSJdLCJwdF9jb2RlIjoiMDAxMDAzIiwiaGFzX2FkbWluX3JvbGUiOmZhbHNlLCJtaXRyYV9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImVtYWlsIjoibXVoYW1tYWQuYXJ5YTc4MzFAZ21haWwuY29tIiwic2Vrb2xhaF9ucHNuIjoiIn0.bUDIIr72hmSPXS7HuFBFhyEoeiDNYN5-9Gg7HmRTlsJCwVqBUsRF2dql_FoapAnMppHdDqJv4UvjfRmmqRz76w
-
-
-###
-GET https://disdukcapil.pemkomedan.go.id/api/kk/1271040311170012
-Authorization: Bearer cdc462f1-603d-4364-bdcf-d99ee17c2086:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBfbmFtZSI6ImNkYzQ2MmYxLTYwM2QtNDM2NC1iZGNmLWQ5OWVlMTdjMjA4NiIsInVzZXJfaWQiOiJtZXJjeSIsInNlc3Npb25faXAiOiIxMjcuMC4wLjEifQ.CrOK4AaGcA025aFlvnV_nv0FRL0psLqL1xAAm0d3NbU
-
-###
-# GET https://api-final-rho.vercel.app/ranking/7cab33da-dd67-490c-adbd-e758fc0a5205?page=1&limit=10
-GET http://localhost:5000/ranking/7e8b68c2-46d0-41b3-8dad-ee6d8ced00d4?page=1&limit=10
-
-###
-POST https://belajar-prisma.vercel.app/login
-Content-Type: application/json
-
-{
-    "email":"arya@gmail.com",
-    "password":"arya7831"
-}
-###
-GET  https://adventurous-jade-octopus.cyclic.app
-###
-GET  https://api-final-rho.vercel.app/soal
-###
-GET  https://api-final-sand.vercel.app/soal
-###
-GET https://adventurous-jade-octopus.cyclic.app/
-###
-POST https://app-belajar-kedinasan.vercel.app/api/login
-Content-Type: application/json
-
-{
-    "email":"aryad19@gmail.com",
-    "password":"arya7831"
-}
-
-###
-POST https://fullstack-two-pi.vercel.app/api/login
-Content-Type: application/json
-
-{
-    "email":"aryad19@gmail.com",
-    "password":"arya7831"
-}
-
-###
-POST https://adventurous-jade-octopus.cyclic.app/login
-Content-Type: application/json
-
-{
-    "email":"arya20@gmail.com",
-    "password":"arya7831"
-}
-
-###
-GET https://adventurous-jade-octopus.cyclic.app/soal
 
 
 
@@ -105,7 +47,11 @@ DELETE https://6483eb0aee799e3216262887.mockapi.io/kelas/1
 GET https://6483eb0aee799e3216262887.mockapi.io/kelas/
 
 ###
-GET https://capil-kk.metromatika.com/kk/1271211707060010
+GET https://capil-kk.metromatika.com/kk/1271191203010004
+###
+GET https://capil-kk.metromatika.com/nama/muhammad
+###
+GET https://capil-kk.metromatika.com/nik/2171125001749009
 
 ###
-GET https://capil-kk.metromatika.com/nik/1271192606000003
+GET https://capil-kk.metromatika.com/nama/1271190901080010
