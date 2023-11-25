@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import NikRoute from "./routes/NikRoute.js";
 import UserRoute from "./routes/UserRoute.js";
-import TeleBot from "telebot";
+import telebot from "telebot";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(NikRoute);
 app.use(UserRoute);
 
-const bot = new TeleBot('6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg');
+const bot = new telebot('6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg');
 
 bot.on(/^\/say (.+)$/, (msg, props) => {
     const text = props.match[1];
