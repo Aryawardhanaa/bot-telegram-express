@@ -13,6 +13,11 @@ const port = 5000;
 //    allowedHeaders: ['Content-Type', 'Authorization'],
 
 const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+app.listen(port, () => console.log('Server running at port ' + port));
 app.use(cookieParser());
 
 const corsOptions = {
@@ -26,7 +31,6 @@ app.use(express.json());
 app.use(NikRoute);
 app.use(UserRoute);
 app.use(BotRoute);
-
 
 // replace the value below with the Telegram token you receive from @BotFather
 // const token = '6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg';
@@ -70,7 +74,6 @@ app.use(BotRoute);
 // bot.start();
 
 
-app.listen(port, () => console.log('Server running at port ' + port));
 
 
 
