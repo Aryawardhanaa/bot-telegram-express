@@ -9,7 +9,7 @@
     "dev": "nodemon index.js",
     "seed": "node prisma/seed.js",
     "query": "node prisma/query.js",
-    "postinstall": "prisma generate && npm install",
+    "postinstall": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

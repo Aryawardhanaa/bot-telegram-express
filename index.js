@@ -28,9 +28,10 @@ const bot = new telebot('6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg');
 
 bot.on(/^\/say (.+)$/, (msg, props) => {
     const text = props.match[1];
-    return bot.sendMessage(msg.from.id, text, { replyToMessage: msg.message_id });
+    // console.log(text.split(','));
+    return bot.sendMessage(msg.from.id, text);
 });
-bot.on('/start', (msg) => msg.reply.text('Selamat datang Jing , maaf kalau sedikit toxic'));
+bot.on('/start', (msg) => msg.reply.text('Selamat datang ... '));
 bot.on('/hello', (msg) => {
     return bot.sendMessage(msg.from.id, `Hello, ${msg.from.first_name}!`);
 });
