@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import NikRoute from "./routes/NikRoute.js";
 import UserRoute from "./routes/UserRoute.js";
-import telebot from "telebot";
+// import telebot from "telebot";
 import TelegramBot from "node-telegram-bot-api";
 
 dotenv.config();
@@ -27,45 +27,45 @@ app.use(UserRoute);
 
 
 // replace the value below with the Telegram token you receive from @BotFather
-// const token = '6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg';
+const token = '6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg';
 
-// // Create a bot that uses 'polling' to fetch new updates
-// const bot = new TelegramBot(token, { polling: true });
+// Create a bot that uses 'polling' to fetch new updates
+const bot = new TelegramBot(token, { polling: true });
 
-// // Matches "/echo [whatever]"
-// bot.onText(/\/echo (.+)/, (msg, match) => {
-//     // 'msg' is the received Message from Telegram
-//     // 'match' is the result of executing the regexp above on the text content
-//     // of the message
+// Matches "/echo [whatever]"
+bot.onText(/\/echo (.+)/, (msg, match) => {
+    // 'msg' is the received Message from Telegram
+    // 'match' is the result of executing the regexp above on the text content
+    // of the message
 
-//     const chatId = msg.chat.id;
-//     const resp = match[1]; // the captured "whatever"
+    const chatId = msg.chat.id;
+    const resp = match[1]; // the captured "whatever"
 
-//     // send back the matched "whatever" to the chat
-//     bot.sendMessage(chatId, resp);
-// });
-
-// // Listen for any kind of message. There are different kinds of
-// // messages.
-// bot.on('message', (msg) => {
-//     const chatId = msg.chat.id;
-
-//     // send a message to the chat acknowledging receipt of their message
-//     bot.sendMessage(chatId, 'Received your message');
-// });
-const bot = new telebot('6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg');
-
-bot.on(/^\/say (.+)$/, (msg, props) => {
-    const text = props.match[1];
-    console.log(text.split(','));
-    return bot.sendMessage(msg.from.id, text);
-});
-bot.on('/start', (msg) => msg.reply.text('Selamat datang ... '));
-bot.on('/hello', (msg) => {
-    return bot.sendMessage(msg.from.id, `Hello, ${msg.from.first_name}!`);
+    // send back the matched "whatever" to the chat
+    bot.sendMessage(chatId, resp);
 });
 
-bot.start();
+// Listen for any kind of message. There are different kinds of
+// messages.
+bot.on('message', (msg) => {
+    const chatId = msg.chat.id;
+
+    // send a message to the chat acknowledging receipt of their message
+    bot.sendMessage(chatId, 'bisaaaa');
+});
+// const bot = new telebot('6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg');
+
+// bot.on(/^\/say (.+)$/, (msg, props) => {
+//     const text = props.match[1];
+//     console.log(text.split(','));
+//     return bot.sendMessage(msg.from.id, text);
+// });
+// bot.on('/start', (msg) => msg.reply.text('Selamat datang ... '));
+// bot.on('/hello', (msg) => {
+//     return bot.sendMessage(msg.from.id, `Hello, ${msg.from.first_name}!`);
+// });
+
+// bot.start();
 
 
 app.listen(port, () => console.log('Server running at port ' + port));
