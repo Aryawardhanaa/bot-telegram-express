@@ -1,4 +1,7 @@
 
+
+###
+GET https://api.aplansboster.dinas.social/api/v1/auth/me
 ###
 POST https://api.aplansboster.dinas.social/api/v1/auth/login
 Content-Type: application/json
