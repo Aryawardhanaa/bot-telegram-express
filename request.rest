@@ -1,5 +1,15 @@
 
+###
+POST https://api.aplansboster.dinas.social/api/v1/auth/login
+Content-Type: application/json
+Accept: application/json
 
+{
+    "email": "aplans-dev@example.com",
+    "password": "dev12345"
+}
+###
+https://bot-telegram-express.vercel.app/
 ### 
 GET https://bot-telegram-express.vercel.app/get-nik/3514114602890000
 
@@ -8,8 +18,8 @@ POST http://localhost:5000/nik
 Content-Type: application/json
 
 {
-    "nik":"1211122" ,
-    "phone":"1212122" ,
+    "nik":"121s121122" ,
+    "phone":"1212112122" ,
     "isp":"122111122" ,
     "time":1221 
 }
