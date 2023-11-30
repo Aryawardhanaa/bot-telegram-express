@@ -2,20 +2,31 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getNik = async (req, res) => {
-    try {
-        const response = await prisma.datanik.findMany();
-        res.status(200).json(response);
-    } catch (error) {
-        res.status(500).json({ msg: error.message });
-    }
-}
+// export const getNik = async (req, res) => {
+//     try {
+//         const response = await prisma.datanik.findMany();
+//         res.status(200).json(response);
+//     } catch (error) {
+//         res.status(500).json({ msg: error.message });
+//     }
+// }
 
 export const getDataByNik = async (req, res) => {
     const { nik } = req.params
     try {
         const response = await prisma.datanik.findUnique({
             where: { nik }
+        });
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(404).json({ msg: error.message });
+    }
+}
+export const getDataByPhone = async (req, res) => {
+    const { phone } = req.params
+    try {
+        const response = await prisma.datanik.findUnique({
+            where: { phone }
         });
         res.status(200).json(response);
     } catch (error) {
