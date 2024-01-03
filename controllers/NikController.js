@@ -35,12 +35,15 @@ export const getDataByPhone = async (req, res) => {
 }
 
 export const createData = async (req, res) => {
-    const { nik, phone, isp, time } = req.body;
+    const { nik, phone } = req.body;
+
+    const date = new Date();
+    // console.log(date.getTime());
     try {
         const response = await prisma.datanik.create({
-            data: { nik, phone, isp, time }
+            data: { nik, phone, time: 43701 }
         });
-        console.log(res);
+        // console.log(res);
         res.status(201).json(response);
     } catch (error) {
         res.status(400).json({ msg: error.message });
@@ -48,16 +51,14 @@ export const createData = async (req, res) => {
 }
 
 export const updateData = async (req, res) => {
-    const { name, price } = req.body;
+    const { nik } = req.params
+
     try {
-        const product = await prisma.product.update({
+        const product = await prisma.datanik.update({
             where: {
-                id: Number(req.params.id)
+                nik
             },
-            data: {
-                name: name,
-                price: price
-            }
+            data: req.body
         });
         res.status(200).json(product);
     } catch (error) {
@@ -77,3 +78,15 @@ export const deleteProduct = async (req, res) => {
         res.status(400).json({ msg: error.message });
     }
 }
+// export const deleteProduct = async (req, res) => {
+//     try {
+//         const product = await prisma.product.delete({
+//             where: {
+//                 id: Number(req.params.id)
+//             }
+//         });
+//         res.status(200).json(product);
+//     } catch (error) {
+//         res.status(400).json({ msg: error.message });
+//     }
+// }

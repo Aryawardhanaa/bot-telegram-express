@@ -14,18 +14,24 @@ Accept: application/json
 ###
 GET https://bot-telegram-express-jykz.vercel.app
 
+
 ### 
 GET https://bot-telegram-express.vercel.app/get-nik/3514114602890000
+
+
+### 
+GET https://bot-telegram-express.vercel.app/get-phone/6281338266681
+### 
+GET http://localhost:5000/get-nik/3514114602890000 
+
 
 ### 
 POST http://localhost:5000/nik
 Content-Type: application/json
 
 {
-    "nik":"121s121122" ,
-    "phone":"1212112122" ,
-    "isp":"122111122" ,
-    "time":1221 
+    "nik":"3514114602891111",
+    "phone":"6281348151999"
 }
 
  

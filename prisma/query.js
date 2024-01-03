@@ -703,10 +703,140 @@ const Simpan = async () => {
         await prisma.$disconnect()
     }
 }
+const fetchingdata = async (route, param) => {
+    // const route = 'http://localhost:5000/get-nik/3514114602890000';
+    const baseUrl = 'http://localhost:5000'
+    const hasil = []
+    // Using the fetch method to make a GET request
+    try {
+        const response = await fetch(`${baseUrl}/${route}/${param}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data
+    } catch (error) {
+        return error
+        console.error('Error fetching data:', error);
+    }
+
+}
+const postdata = async (url, body) => {
+    const baseUrl = 'http://localhost:5000'
+
+    try {
+        const response = await fetch(`${baseUrl}/${url}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        });
+        // console.log(JSON.stringify(body));
+        if (!response.ok) {
+            console.log('error1');
+            return response.status
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data
+
+    } catch (error) {
+        console.log('error2');
+        return error
+        console.error('Error posting data:', error);
+    }
+
+}
+const updatedata = async (url, body) => {
+    const baseUrl = 'http://localhost:5000'
+
+    try {
+        const response = await fetch(baseUrl + '/' + url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        });
+
+        if (!response.ok) {
+            console.log('error1');
+            return response.status
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data
+
+    } catch (error) {
+        console.log('error2');
+        return error
+        console.error('Error posting data:', error);
+    }
+
+}
+const Test = async () => {
+
+    try {
+
+        // const userText = '/cari-nik 3514114602890000'
+        const userText = '/create 3514114602891111 6281348151999'
+        const inputString = userText;
+
+        const regexPattern = /\/(.*?) /;
+        const matches = regexPattern.exec(inputString);
+        const result = matches && matches[1];
+
+        let responseText = userText;
+
+        if (result == 'cari-nik') {
+            const nik = inputString.split(' ')[1];
+            const res = await fetchingdata('get-nik', nik)
+            if (!res) {
+                responseText = 'Data Tidak Ditemukan'
+                return
+            }
+            responseText = `Nomor Nik : ${res.nik} , Nomor HP : ${res.phone} `
+        }
+        if (result == 'cari-no-hp') {
+            const nohp = inputString.split(' ')[1];
+            const res = await fetchingdata('get-phone', nohp)
+            if (!res) {
+                responseText = 'Data Tidak Ditemukan'
+                return
+            }
+            responseText = `Nomor Nik : ${res.nik} , Nomor HP : ${res.phone} `
+        }
+        if (result == 'create') {
+            const nik = inputString.split(' ')[1];
+            const phone = inputString.split(' ')[2];
+            const body = { nik, phone }
+            const res = await postdata('nik', body)
+            // console.log(res);
+            // if (!res) {
+            //     responseText = 'Data Tidak Ditemukan'
+            //     return
+            // }
+            responseText = res == 400 ? 'Error' : res ? `Data Berhasil Ditambah` : 'Data Tidak Ditemukan'
+            // console.log(res);
+        }
+
+        console.log(responseText);
+    } catch (err) {
+        console.error(err)
+        process.exit(1)
+    } finally {
+        await prisma.$disconnect()
+    }
+}
 function main() {
     // Save()
     // SimpanJawabanProcedure()
-    Simpan()
+    Test()
     // rawprocedure1()
     // rawprocedure2()
 }

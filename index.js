@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import NikRoute from "./routes/NikRoute.js";
 import UserRoute from "./routes/UserRoute.js";
-import BotRoute from "./routes/BotRoute.js";
+// import BotRoute from "./routes/BotRoute.js";
 // import telebot from "telebot";
 // import TelegramBot from "node-telegram-bot-api";
 
@@ -31,7 +31,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(NikRoute);
 app.use(UserRoute);
-app.use(BotRoute);
+// app.use(BotRoute);
 
 // replace the value below with the Telegram token you receive from @BotFather
 // const token = '6747804244:AAEb8jpi8lF8hNBghL7VRpsAQzZ-rcvgBcg';
